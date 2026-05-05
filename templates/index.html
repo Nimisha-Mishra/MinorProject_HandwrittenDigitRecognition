@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Handwritten Digit Recognition</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="container">
+    <h1>Handwritten Digit Recognition</h1>
+    <p class="subtitle">Draw a digit (0–9) on the canvas below and click <strong>Predict</strong>.</p>
+
+    <div class="canvas-wrapper">
+      <canvas id="drawingCanvas" width="280" height="280"></canvas>
+    </div>
+
+    <div class="controls">
+      <button id="predictBtn">Predict</button>
+      <button id="clearBtn" class="secondary">Clear</button>
+    </div>
+
+    <div id="result" class="result hidden">
+      <div class="prediction-box">
+        <span class="label">Predicted Digit</span>
+        <span id="predictedDigit" class="digit">–</span>
+        <span id="confidence" class="confidence"></span>
+      </div>
+
+      <div class="bar-chart" id="barChart">
+        <!-- Probability bars inserted by JS -->
+      </div>
+    </div>
+
+    <p id="errorMsg" class="error hidden"></p>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+/* ── Reset & base ───────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f2f5;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+}
+
+/* ── Layout ─────────────────────────────────────────────────────── */
+.container {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  padding: 2.5rem 2rem;
+  max-width: 440px;
+  width: 100%;
+  text-align: center;
+}
+
+h1 {
+  font-size: 1.6rem;
+  color: #1a237e;
+  margin-bottom: 0.4rem;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Canvas ─────────────────────────────────────────────────────── */
+.canvas-wrapper {
+  display: inline-block;
+  border: 3px solid #1a237e;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: crosshair;
+  margin-bottom: 1.2rem;
+}
+
+#drawingCanvas {
+  display: block;
+  background: #000;
+  touch-action: none;
+}
+
+/* ── Buttons ────────────────────────────────────────────────────── */
+.controls {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+button {
+  padding: 0.55rem 1.6rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+button:active { transform: scale(0.97); }
+
+#predictBtn {
+  background: #1a237e;
+  color: #fff;
+}
+
+#predictBtn:hover { background: #283593; }
+
+button.secondary {
+  background: #e8eaf6;
+  color: #1a237e;
+}
+
+button.secondary:hover { background: #c5cae9; }
+
+/* ── Result panel ───────────────────────────────────────────────── */
+.result { animation: fadeIn 0.3s ease; }
+
+.hidden { display: none !important; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; } }
+
+.prediction-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #888;
+  margin-bottom: 0.2rem;
+}
+
+.digit {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #1a237e;
+  line-height: 1;
+}
+
+.confidence {
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 0.2rem;
+}
+
+/* ── Probability bar chart ──────────────────────────────────────── */
+.bar-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  text-align: left;
+}
+
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+}
+
+.bar-digit {
+  width: 1.2rem;
+  font-weight: 600;
+  color: #444;
+  text-align: right;
+}
+
+.bar-track {
+  flex: 1;
+  background: #e8eaf6;
+  border-radius: 4px;
+  height: 14px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: #3949ab;
+  transition: width 0.5s ease;
+}
+
+.bar-fill.top { background: #1a237e; }
+
+.bar-pct {
+  width: 3.5rem;
+  text-align: right;
+  color: #555;
+}
+
+/* ── Error ──────────────────────────────────────────────────────── */
+.error {
+  color: #c62828;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
