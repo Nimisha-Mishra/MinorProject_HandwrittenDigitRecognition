@@ -1,6 +1,6 @@
 streamlit
 streamlit-drawable-canvas
-tensorflow-cpu
+tensorflow-cpu==2.15.0
 opencv-python-headless
 numpy
 Pillow
